@@ -1,0 +1,83 @@
+\newcommand{\recipeTitle}[1]{%
+  \chapter{#1}
+}
+
+\newcommand{\recipeSubtitle}[1]{%
+  \vspace{-0.5em}
+  {\large\itshape #1}
+  \vspace{1em}
+}
+
+\newcommand{\recipeAuthor}[1]{%
+  \begin{tcolorbox}[colback=recipelight,colframe=recipegreen,title=Autore]
+    #1
+  \end{tcolorbox}
+}
+
+\newcommand{\recipeStory}[1]{%
+  \begin{tcolorbox}[colback=white,colframe=recipeaccent,title=Storia della ricetta]
+    #1
+  \end{tcolorbox}
+}
+
+\newcommand{\recipePhoto}[2][]{%
+  \begin{center}
+    \includegraphics[width=\textwidth,#1]{#2}
+  \end{center}
+}
+
+\newcommand{\recipeInfo}[5]{%
+  \begin{tcolorbox}[colback=recipelight,colframe=recipegreen,title=Informazioni]
+    \begin{tabularx}{\textwidth}{lX}
+      Preparazione: & #1 \\
+      Cottura: & #2 \\
+      Porzioni: & #3 \\
+      Difficolta': & #4 \\
+      Categoria: & #5 \\
+    \end{tabularx}
+  \end{tcolorbox}
+}
+
+\newenvironment{ingredients}{%
+  \section*{Ingredienti}
+  \begin{itemize}[leftmargin=2em]
+}{%
+  \end{itemize}
+}
+
+\newcommand{\ingredient}[2]{%
+  \item #1 \hfill #2
+}
+
+\newenvironment{tools}{%
+  \section*{Strumenti necessari}
+  \begin{itemize}[leftmargin=2em]
+}{%
+  \end{itemize}
+}
+
+\newcommand{\tool}[1]{%
+  \item #1
+}
+
+\newenvironment{procedure}{%
+  \section*{Procedimento}
+  \begin{enumerate}[leftmargin=2em]
+}{%
+  \end{enumerate}
+}
+
+\newcommand{\step}[1]{%
+  \item #1
+}
+
+\newenvironment{notes}{%
+  \section*{Note}
+  \begin{itemize}[leftmargin=2em]
+}{%
+  \end{itemize}
+}
+
+\newcommand{\note}[1]{%
+  \item #1
+}
