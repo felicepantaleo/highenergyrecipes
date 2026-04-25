@@ -1,5 +1,5 @@
 \newcommand{\recipeTitle}[1]{%
-  \chapter{#1}
+  \section{#1}
 }
 
 \newcommand{\recipeSubtitle}[1]{%
@@ -39,7 +39,7 @@
 }
 
 \newenvironment{ingredients}{%
-  \section*{Ingredienti}
+  \subsection*{Ingredienti}
   \begin{itemize}[leftmargin=2em]
 }{%
   \end{itemize}
@@ -50,7 +50,7 @@
 }
 
 \newenvironment{tools}{%
-  \section*{Strumenti necessari}
+  \subsection*{Strumenti necessari}
   \begin{itemize}[leftmargin=2em]
 }{%
   \end{itemize}
@@ -61,7 +61,7 @@
 }
 
 \newenvironment{procedure}{%
-  \section*{Procedimento}
+  \subsection*{Procedimento}
   \begin{enumerate}[leftmargin=2em]
 }{%
   \end{enumerate}
@@ -72,7 +72,7 @@
 }
 
 \newenvironment{notes}{%
-  \section*{Note}
+  \subsection*{Note}
   \begin{itemize}[leftmargin=2em]
 }{%
   \end{itemize}
