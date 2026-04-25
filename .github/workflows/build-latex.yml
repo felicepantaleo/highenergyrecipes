@@ -1,8 +1,14 @@
-name: Build LaTeX book
+name: Build and release LaTeX book
 
 on:
   push:
+    branches:
+      - master
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -18,8 +24,18 @@ jobs:
           latexmk_use_xelatex: false
           args: -pdf -interaction=nonstopmode -halt-on-error
 
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
+      - name: Rename PDF
+        run: mv main.pdf high-energy-recipes.pdf
+
+      - name: Create or update latest release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: softprops/action-gh-release@v2
         with:
-          name: high-energy-recipes-pdf
-          path: main.pdf
+          tag_name: latest
+          name: Latest PDF
+          body: |
+            Automatically generated PDF from the latest commit on master.
+
+            Commit: ${{ github.sha }}
+          files: high-energy-recipes.pdf
+          make_latest: true
